@@ -11,6 +11,10 @@ Color navBarColor = const Color.fromARGB(255, 89, 64, 182);
 const double kPaddingHorizontal = 30.0;
 const double kBorderRadiusList = 11;
 
+final kFontSansSuperExtraBold = GoogleFonts.sourceSans3(
+  fontWeight: FontWeight.w900,
+);
+
 final kFontSansExtraBold = GoogleFonts.sourceSans3(
   fontWeight: FontWeight.w800,
 );

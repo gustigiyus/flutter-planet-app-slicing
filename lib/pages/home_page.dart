@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_latihan_slicing_1/Model/universe_model.dart';
 import 'package:flutter_latihan_slicing_1/Utils/app_styles.dart';
 import 'package:flutter_latihan_slicing_1/Utils/size_config.dart';
+import 'package:flutter_latihan_slicing_1/pages/planet_detail_page.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 
 class UniversHomePage extends StatefulWidget {
@@ -80,7 +81,16 @@ class _UniversHomePageState extends State<UniversHomePage> {
                 ),
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                            planetInfo: planets[index],
+                          ),
+                        ),
+                      );
+                    },
                     child: Stack(
                       children: [
                         Column(
@@ -158,7 +168,11 @@ class _UniversHomePageState extends State<UniversHomePage> {
                             )
                           ],
                         ),
-                        Image.asset("assets/${planets[index].iconImage}"),
+                        Hero(
+                          tag: planets[index].id,
+                          child:
+                              Image.asset("assets/${planets[index].iconImage}"),
+                        ),
                         Positioned(
                           right: 30,
                           bottom: 70,
